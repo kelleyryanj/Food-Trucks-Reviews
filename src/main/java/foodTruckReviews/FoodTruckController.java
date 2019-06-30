@@ -22,21 +22,21 @@ public class FoodTruckController {
 	
 	
 	@Resource
-	foodtruckRepository foodTruckRepo;
+	FoodtruckRepository foodTruckRepo;
 	
 	@RequestMapping("/foodtruck")
 	public String findOneFoodTruck(@RequestParam(value = "id")Long id, Model model) throws FoodTruckNotFoundException {
 		Optional<Foodtruck> foodTruck = foodTruckRepo.findById(id);
 		
 		if(foodTruck.isPresent()) {
-			model.addAttribute("food-trucks", foodTruck);
-			return ("food-trucks");
+			model.addAttribute("food-trucks", foodTruck.get());
+			return ("food-truck");
 		}
 		throw new FoodTruckNotFoundException();
 	}
 	
 	@RequestMapping("/show-all-foodtrucks")
-	public String findAllFoodTrucks(Long id, Model model) {
+	public String findAllFoodTrucks(Model model) {
 		model.addAttribute("food-trucks", foodTruckRepo.findAll());
 		return "food-trucks";
 		
@@ -55,7 +55,7 @@ public class FoodTruckController {
 	}
 	
 	@RequestMapping("/show-all-reviews")
-	public String findAllReviews(Long id, Model model) {
+	public String findAllReviews(Model model) {
 		model.addAttribute("reviews", reviewRepo.findAll());
 		return ("reviews");
 		
@@ -67,6 +67,7 @@ public class FoodTruckController {
 		
 		if(cuisine.isPresent()) {
 			model.addAttribute("cuisines", cuisine.get());
+			model.addAttribute("food-trucks", foodTruckRepo.findByCuisinesContains(cuisine.get()));
 			return ("cuisine");
 		}
 		throw new CuisineNotFoundException();
@@ -74,7 +75,7 @@ public class FoodTruckController {
 	}
 	
 	@RequestMapping("/show-all-cuisines")
-	public String findAllCuisines(Long id, Model model) {
+	public String findAllCuisines(Model model) {
 		model.addAttribute("cusines", cuisineRepo.findAll());
 		return ("cuisines");
 	}
