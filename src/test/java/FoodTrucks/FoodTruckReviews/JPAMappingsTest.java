@@ -25,10 +25,13 @@ public class JPAMappingsTest {
 	private CuisineRepository cuisineRepo;
 	
 	@Resource
-	private ReviewRepository reviewRepo;
+	private FoodtruckRepository foodtruckRepo;
 	
 	@Resource
 	private TestEntityManager entityManager;
+	
+	@Resource
+	ReviewRepository reviewRepo;
 	
 	
 	@Test
@@ -60,68 +63,84 @@ public class JPAMappingsTest {
 	}
 
 	@Test
-	public void shouldSaveAndLoadReview() {
-		Review review = new Review("name", "map");
-		review = reviewRepo.save(review);
-		long reviewId = review.getId();
+	public void shouldSaveAndLoadFoodtruck() {
+		Foodtruck foodtruck = new Foodtruck("name", "map");
+		foodtruck = foodtruckRepo.save(foodtruck);
+		long foodtruckId = foodtruck.getId();
 		
 		entityManager.flush();
 		entityManager.clear();
 		
-		Optional<Review> result = reviewRepo.findById(reviewId);
-		review = result.get();
-		assertThat(review.getName(), is("name"));
+		Optional<Foodtruck> result = foodtruckRepo.findById(foodtruckId);
+		foodtruck = result.get();
+		assertThat(foodtruck.getName(), is("name"));
 		
 	}
 	
 	@Test
-	public void shouldEstablishReviewToCuisinesRelationships() {
+	public void shouldEstablishFoodtruckToCuisinesRelationships() {
 		Cuisine american = new Cuisine("american");
 		american = cuisineRepo.save(american);
 		Cuisine italian = new Cuisine("italian");
 		italian = cuisineRepo.save(italian);
 		
-		Review review = new Review("Mikey's Late Night Slice", "map1", italian, american);
-		review = reviewRepo.save(review);
-		long reviewId = review.getId();
+		Foodtruck foodtruck = new Foodtruck("Mikey's Late Night Slice", "map1", italian, american);
+		foodtruck = foodtruckRepo.save(foodtruck);
+		long foodtruckId = foodtruck.getId();
 		
 		entityManager.flush();
 		entityManager.clear();
 		
-		Optional<Review> result = reviewRepo.findById(reviewId);
-		review = result.get();
-		assertThat(review.getCuisines(), containsInAnyOrder(american, italian));
+		Optional<Foodtruck> result = foodtruckRepo.findById(foodtruckId);
+		foodtruck = result.get();
+		assertThat(foodtruck.getCuisines(), containsInAnyOrder(american, italian));
 	}
 	
 	@Test
-	public void shouldFindReviewsForCuisine() {
+	public void shouldFindFoodtrucksForCuisine() {
 		Cuisine mexican = cuisineRepo.save(new Cuisine("mexican"));
 
-		Review review1 = reviewRepo.save(new Review("Mr. Grill Tacos", "map1", mexican));
-		Review review2 = reviewRepo.save(new Review("La Arepa Picante", "map2", mexican ));
+		Foodtruck foodtruck1 = foodtruckRepo.save(new Foodtruck("Mr. Grill Tacos", "map1", mexican));
+		Foodtruck foodtruck2 = foodtruckRepo.save(new Foodtruck("La Arepa Picante", "map2", mexican ));
 		
 		entityManager.flush();
 		entityManager.clear();
 		
-		Collection<Review> reviewsForCuisine = reviewRepo.findByCuisinesContains(mexican);
-		assertThat(reviewsForCuisine, containsInAnyOrder(review1, review2));
+		Collection<Foodtruck> foodtrucksForCuisine = foodtruckRepo.findByCuisinesContains(mexican);
+		assertThat(foodtrucksForCuisine, containsInAnyOrder(foodtruck1, foodtruck2));
 		
 	}
 	
 	@Test
-	public void shouldFindReviewsForCuisineId() {
+	public void shouldFindFoodtrucksForCuisineId() {
 		Cuisine mediterranean  = cuisineRepo.save(new Cuisine("mediterranean"));
 		long cuisineId = mediterranean .getId();
 		
-		Review review3 = reviewRepo.save(new Review("Halal Ney YOrk Gyro", "map3", mediterranean));
-		Review review4 = reviewRepo.save(new Review("Kabob Time", "map4", mediterranean));
+		Foodtruck Foodtruck3 = foodtruckRepo.save(new Foodtruck("Halal NeywYork Gyro", "map3", mediterranean));
+		Foodtruck Foodtruck4 = foodtruckRepo.save(new Foodtruck("Kabob Time", "map4", mediterranean));
 		
 		entityManager.flush();
 		entityManager.clear();
 		
-		Collection<Review> reviewsForCuisine = reviewRepo.findByCuisinesId(cuisineId);
-		assertThat(reviewsForCuisine, containsInAnyOrder(review3, review4));
+		Collection<Foodtruck> FoodtrucksForCuisine = foodtruckRepo.findByCuisinesId(cuisineId);
+		assertThat(FoodtrucksForCuisine, containsInAnyOrder(Foodtruck3, Foodtruck4));
 		
+	}
+	
+	@Test
+	public void shouldSaveReviewToFoodtruckRelationship() {
+		Foodtruck foodtruck = foodtruckRepo.save(new Foodtruck("Halal NeywYork Gyro", "map3"));
+		long foodtruckId = foodtruck.getId();
+		
+		Review review = reviewRepo.save(new Review("Review1", foodtruck));
+		Review review2 = reviewRepo.save(new Review("Review2", foodtruck));
+		
+		entityManager.flush();
+		entityManager.clear();
+		
+		Optional<Foodtruck>result = foodtruckRepo.findById(foodtruckId);
+		foodtruck = result.get();
+		assertThat(foodtruck.getReviews(), containsInAnyOrder(review, review2));
 		
 	}
 }

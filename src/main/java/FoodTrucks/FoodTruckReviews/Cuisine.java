@@ -17,7 +17,7 @@ public class Cuisine {
 	private String type;
 	
 	@ManyToMany(mappedBy = "cuisines")
-	private Collection<Review>reviews;
+	private Collection<Foodtruck>foodtrucks;
 	
 	public Cuisine() {
 		
@@ -35,8 +35,8 @@ public class Cuisine {
 		return type;
 	}
 	
-	public Collection<Review> getReviews(){
-		return reviews;
+	public Collection<Foodtruck> getReviews(){
+		return foodtrucks;
 	}
 
 	@Override
