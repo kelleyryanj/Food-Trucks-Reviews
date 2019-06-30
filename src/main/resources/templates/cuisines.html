@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>
-
-        </title>
+        <title>Cuisines</title>
     </head>
     <body>
-        
+        <h1>List of Cusines</h1>
+            <div th:each="course: ${foodtrucks}"></div>
+        <li>
+            <a th:href="@{/foodtruck(id=${Foodtruck.id})}" th:text="${foodtruck.Cusines}"></a>
+        </li>
+    </div>
+
     </body>
 
 </html>
