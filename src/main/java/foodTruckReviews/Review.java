@@ -1,4 +1,4 @@
-package FoodTrucks.FoodTruckReviews;
+package foodTruckReviews;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -7,7 +7,8 @@ import java.util.HashSet;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+
+import javax.persistence.ManyToOne;
 
 @Entity
 
@@ -19,7 +20,7 @@ public class Review {
 	private String name;
 	private String map;
 	
-	@ManyToMany
+	@ManyToOne
 	private Collection<Cuisine> cuisines;
 
 	public Review() {
