@@ -22,7 +22,7 @@ public class FoodTruckController {
 	
 	
 	@Resource
-	FoodtruckRepository foodTruckRepo;
+	FoodTruckRepository foodTruckRepo;
 	
 	@RequestMapping("/foodtruck")
 	public String findOneFoodTruck(@RequestParam(value = "id")Long id, Model model) throws FoodTruckNotFoundException {
