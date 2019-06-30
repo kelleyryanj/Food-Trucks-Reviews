@@ -48,6 +48,8 @@ public class Review {
 
 	@ManyToOne
 	private Foodtruck foodtruck;
+
+	private String review;
 	
 	
 	public Review(String review, Foodtruck foodtruck) {
