@@ -1,6 +1,8 @@
 package foodTruckReviews;
 
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashSet;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,39 +12,44 @@ import javax.persistence.OneToMany;
 
 @Entity
 
-public class Cuisine {
+public class Foodtruck {
 	@Id
 	@GeneratedValue
 	private long id;
 	
-	private String type;
+	private String name;
+	private String map;
 	
-
-	@OneToMany(mappedBy = "cuisines")
-	private Collection<Review>reviews;
-
-	@ManyToMany(mappedBy = "cuisines")
-	private Collection<Foodtruck>foodtrucks;
-
+	@ManyToMany
+	private Collection<Cuisine> cuisines;
 	
-	public Cuisine() {
+	@OneToMany(mappedBy = "foodtruck")
+	private Collection<Review> reviews;
+
+	public Foodtruck() {
 		
 	}
-
-	public Cuisine(String type) {
-		this.type = type;
-	}
 	
+	public Foodtruck(String name, String map, Cuisine...cuisines) {
+		this.name = name;
+		this.map = map;
+		this.cuisines = new HashSet<>(Arrays.asList(cuisines));
+	}
+
 	public long getId() {
 		return id;
 	}
 	
-	public String getType(){
-		return type;
+	public String getName() {
+		return name;
 	}
 	
-	public Collection<Foodtruck> getReviews(){
-		return foodtrucks;
+	public String getMap() {
+		return map;
+	}
+	
+	public Collection<Cuisine> getCuisines(){
+		return cuisines;
 	}
 
 	@Override
@@ -61,10 +68,14 @@ public class Cuisine {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Cuisine other = (Cuisine) obj;
+		Foodtruck other = (Foodtruck) obj;
 		if (id != other.id)
 			return false;
 		return true;
+	}
+
+	public Collection<Review> getReviews() {
+		return reviews;
 	}
 
 }

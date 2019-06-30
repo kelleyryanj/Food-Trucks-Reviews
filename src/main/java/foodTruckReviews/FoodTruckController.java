@@ -1,5 +1,6 @@
 package foodTruckReviews;
 
+import java.util.Collection;
 import java.util.Optional;
 
 import javax.annotation.Resource;
@@ -20,14 +21,27 @@ public class FoodTruckController {
 	
 	
 	
-//	@Resource
-//	FoodTruckRepository foodTruckRepo;
-//	
-//	@RequestMapping("food-truck")
-//	public String findOneFoodTruck(@RequestParam(value = "id")Long id, Model model) {
-//		Optional<FoodTruck> foodTruck = reviewRepo.findById(id);
-//	}
-//	
+	@Resource
+	foodtruckRepository foodTruckRepo;
+	
+	@RequestMapping("food-truck")
+	public String findOneFoodTruck(@RequestParam(value = "id")Long id, Model model) throws FoodTruckNotFoundException {
+		Optional<Foodtruck> foodTruck = foodTruckRepo.findById(id);
+		
+		if(foodTruck.isPresent()) {
+			model.addAttribute("food-trucks", foodTruck);
+			return ("food-trucks");
+		}
+		throw new FoodTruckNotFoundException();
+	}
+	
+	@RequestMapping("/show-food-trucks")
+	public String findAllFoodTrucks(Long id, Model model) {
+		model.addAttribute("food-trucks", foodTruckRepo.findAll());
+		return "food-trucks";
+		
+	}
+	
 	@RequestMapping("/review")
 	public String findOneReview(@RequestParam(value = "id")Long id, Model model) throws ReviewNotFoundException {
 		Optional<Review> review = reviewRepo.findById(id);

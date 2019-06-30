@@ -9,5 +9,9 @@ public interface ReviewRepository extends CrudRepository<Review, Long> {
 	Collection<Review> findByCuisinesContains(Cuisine cuisine);
 
 	Collection<Review> findByCuisinesId(Long id);
+	
+
+
+
 
 }
