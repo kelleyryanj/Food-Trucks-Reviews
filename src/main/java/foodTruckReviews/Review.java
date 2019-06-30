@@ -1,5 +1,6 @@
 package foodTruckReviews;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -45,6 +46,7 @@ public class Review {
 
 	@ManyToOne
 	private Foodtruck foodtruck;
+
 	
 	
 	public Review(String review, Foodtruck foodtruck) {

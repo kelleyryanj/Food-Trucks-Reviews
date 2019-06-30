@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+
+
 @Entity
 
 public class Cuisine {
@@ -16,8 +18,10 @@ public class Cuisine {
 	
 	private String type;
 	
+
 	@ManyToMany(mappedBy = "cuisines")
 	private Collection<Foodtruck>foodtrucks;
+
 	
 	public Cuisine() {
 		
