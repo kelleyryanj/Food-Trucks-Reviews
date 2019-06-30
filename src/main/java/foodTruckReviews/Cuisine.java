@@ -18,9 +18,6 @@ public class Cuisine {
 	private String type;
 	
 
-	@OneToMany(mappedBy = "cuisines")
-	private Collection<Review>reviews;
-
 	@ManyToMany(mappedBy = "cuisines")
 	private Collection<Foodtruck>foodtrucks;
 

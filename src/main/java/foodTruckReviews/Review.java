@@ -5,6 +5,7 @@ import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -15,8 +16,7 @@ public class Review {
 	@GeneratedValue
 	private long id;
 	
-	@ManyToOne
-	private Collection<Cuisine> cuisines;
+	private String review;
 	
 	public Review() {
 		
@@ -49,7 +49,7 @@ public class Review {
 	@ManyToOne
 	private Foodtruck foodtruck;
 
-	private String review;
+	
 	
 	
 	public Review(String review, Foodtruck foodtruck) {
