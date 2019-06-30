@@ -15,9 +15,6 @@ public class Review {
 	@GeneratedValue
 	private long id;
 	
-	private String review;
-	
-
 	@ManyToOne
 	private Collection<Cuisine> cuisines;
 	
