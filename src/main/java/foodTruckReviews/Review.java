@@ -1,4 +1,4 @@
-package FoodTrucks.FoodTruckReviews;
+package foodTruckReviews;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -1,4 +1,4 @@
-package FoodTrucks.FoodTruckReviews;
+package foodTruckReviews;
 
 import java.util.Collection;
 
