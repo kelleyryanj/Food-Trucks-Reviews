@@ -30,7 +30,7 @@ public class FoodTruckController {
 		
 		if(foodTruck.isPresent()) {
 			model.addAttribute("food-trucks", foodTruck.get());
-			return ("food-truck");
+			return ("foodtruck");
 		}
 		throw new FoodTruckNotFoundException();
 	}
