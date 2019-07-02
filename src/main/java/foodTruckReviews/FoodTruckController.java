@@ -57,7 +57,7 @@ public class FoodTruckController {
 	@RequestMapping("/show-all-reviews")
 	public String findAllReviews(Model model) {
 		model.addAttribute("reviews", reviewRepo.findAll());
-		return ("reviews");
+		return ("show-all-reviews");
 		
 	}
 	
@@ -76,7 +76,7 @@ public class FoodTruckController {
 	
 	@RequestMapping("/show-all-cuisines")
 	public String findAllCuisines(Model model) {
-		model.addAttribute("cusines", cuisineRepo.findAll());
-		return ("cuisines");
+		model.addAttribute("cuisines", cuisineRepo.findAll());
+		return ("show-all-cuisines");
 	}
 }

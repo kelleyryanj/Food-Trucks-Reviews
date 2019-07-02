@@ -1,9 +1,12 @@
 package foodTruckReviews;
 
+import java.util.Collection;
 import java.util.Optional;
 
 import javax.annotation.Resource;
 import static org.hamcrest.Matchers.*;
+import java.util.Arrays;
+
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -37,10 +40,19 @@ public class MockMvcControllerTest {
 	Foodtruck foodTruck;
 	
 	@Mock
+	Foodtruck anotherFoodtruck;
+	
+	@Mock
 	Review review;
 	
 	@Mock
+	Review anotherReview;
+	
+	@Mock
 	Cuisine cuisine;
+	
+	@Mock
+	Cuisine anotherCuisine;
 	
 	
 	@Test
@@ -72,7 +84,109 @@ public class MockMvcControllerTest {
 	}
 	
 	@Test
-	public void shouldRouteToAllFoodTrucks () throws Exception {
-		mvc.perform(get("/show-all-foodtrucks")).andExpect(view().name(is("food-trucks")));
+	public void shouldRouteToAllFoodTrucksView () throws Exception {
+		mvc.perform(get("/show-all-foodtrucks")).andExpect(view().name(is("show-all-foodtrucks")));
+	}
+	
+	@Test
+	public void shouldBeokForAllFoodTrucks () throws Exception {
+		mvc.perform(get("/show-all-foodtrucks")).andExpect(status().isOk());
+	}
+	
+	@Test
+	public void shouldPutAllFoodTrucksIntoModel() throws Exception {
+		Collection<Foodtruck> allFoodTrucks = Arrays.asList(foodTruck, anotherFoodtruck);
+		when(foodTruckRepo.findAll()).thenReturn(allFoodTrucks);
+		
+		mvc.perform(get("/show-all-foodtrucks")).andExpect(model().attribute("food-trucks", is(allFoodTrucks)));
+	}
+	
+	@Test
+	public void shouldRouteToSingleReviewView() throws Exception{
+		long arbitraryReviewId = 1;
+		when(reviewRepo.findById(arbitraryReviewId)).thenReturn(Optional.of(review));
+		
+		mvc.perform(get("/review?id=1")).andExpect(view().name(is("review")));
+	}
+	
+	@Test
+	public void shouldRouteToSingleReview() throws Exception{
+		long arbitraryReviewId = 1;
+		when(reviewRepo.findById(arbitraryReviewId)).thenReturn(Optional.of(review));
+		
+		mvc.perform(get("/review?id=1")).andExpect(status().isOk());
+		
+		}
+	@Test
+	public void shouldNotRouteToSingleReview() throws Exception {
+		mvc.perform(get("/review?id=1")).andExpect(status().isNotFound());
+	}
+	
+	@Test
+	public void shouldPutSingleReviewIntoModel() throws Exception {
+		when(reviewRepo.findById(1L)).thenReturn(Optional.of(review));
+		mvc.perform(get("/review?id=1")).andExpect(model().attribute("reviews", is (review)));
+	}
+	
+	@Test
+	public void shouldRouteToAllReviewsView () throws Exception {
+		mvc.perform(get("/show-all-reviews")).andExpect(view().name(is("show-all-reviews")));
+	}
+	@Test
+	public void shouldBeokForAllReviews () throws Exception {
+		mvc.perform(get("/show-all-reviews")).andExpect(status().isOk());
+	}
+	
+	@Test
+	public void shouldPutAllReviewsIntoModel() throws Exception {
+		Collection<Review> allReviews = Arrays.asList(review, anotherReview);
+		when(reviewRepo.findAll()).thenReturn(allReviews);
+		
+		mvc.perform(get("/show-all-reviews")).andExpect(model().attribute("reviews", is(allReviews)));
+	}
+	
+	@Test
+	public void shouldRouteToSingleCuisineView() throws Exception{
+		long arbitraryCuisineId = 1;
+		when(cuisineRepo.findById(arbitraryCuisineId)).thenReturn(Optional.of(cuisine));
+		
+		mvc.perform(get("/cuisine?id=1")).andExpect(view().name(is("cuisine")));
+	}
+	
+	@Test
+	public void shouldRouteToSingleCuisine() throws Exception{
+		long arbitraryCuisineId = 1;
+		when(cuisineRepo.findById(arbitraryCuisineId)).thenReturn(Optional.of(cuisine));
+		
+		mvc.perform(get("/cuisine?id=1")).andExpect(status().isOk());
+		
+		}
+	
+	@Test
+	public void shouldNotRouteToSingleCuisine() throws Exception {
+		mvc.perform(get("/cuisine?id=1")).andExpect(status().isNotFound());
+	}
+	
+	@Test
+	public void shouldPutSingleCuisineIntoModel() throws Exception {
+		when(cuisineRepo.findById(1L)).thenReturn(Optional.of(cuisine));
+		mvc.perform(get("/cuisine?id=1")).andExpect(model().attribute("cuisines", is (cuisine)));
+	}
+	
+	@Test
+	public void shouldRouteToAllCuisinesView () throws Exception {
+		mvc.perform(get("/show-all-cuisines")).andExpect(view().name(is("show-all-cuisines")));
+	}
+	@Test
+	public void shouldBeokForAllCuisines () throws Exception {
+		mvc.perform(get("/show-all-cuisines")).andExpect(status().isOk());
+	}
+	
+	@Test
+	public void shouldPutAllCuisinesIntoModel() throws Exception {
+		Collection<Cuisine> allCuisines = Arrays.asList(cuisine, anotherCuisine);
+		when(cuisineRepo.findAll()).thenReturn(allCuisines);
+		
+		mvc.perform(get("/show-all-cuisines")).andExpect(model().attribute("cuisines", is(allCuisines)));
 	}
 }
