@@ -156,5 +156,7 @@ public class JPAMappingsTest {
 		assertThat(foodtruck.getReviews(), containsInAnyOrder(review, review2));
 		
 	}
+	
+
 }
 

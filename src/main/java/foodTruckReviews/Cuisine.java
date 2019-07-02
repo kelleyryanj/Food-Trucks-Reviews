@@ -39,7 +39,7 @@ public class Cuisine {
 		return type;
 	}
 	
-	public Collection<Foodtruck> getReviews(){
+	public Collection<Foodtruck> getFoodtrucks(){
 		return foodtrucks;
 	}
 

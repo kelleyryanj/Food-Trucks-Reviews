@@ -1,6 +1,8 @@
 package foodTruckReviews;
 
 
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,7 +16,7 @@ public class Review {
 	@GeneratedValue
 	private long id;
 	
-	private String review;
+	private String description;
 	
 	public Review() {
 		
@@ -49,13 +51,17 @@ public class Review {
 
 	
 	
-	public Review(String review, Foodtruck foodtruck) {
-		this.review = review;
+	public Review(String description, Foodtruck foodtruck) {
+		this.description = description;
 		this.foodtruck = foodtruck;
 	
 	
 	}
 	
+	public long getId() {
+		return id;
+	}
 	
+
 
 }

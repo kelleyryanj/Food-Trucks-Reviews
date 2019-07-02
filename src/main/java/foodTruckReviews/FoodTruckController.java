@@ -19,8 +19,6 @@ public class FoodTruckController {
 	@Resource
 	ReviewRepository reviewRepo;
 	
-	
-	
 	@Resource
 	FoodtruckRepository foodTruckRepo;
 	

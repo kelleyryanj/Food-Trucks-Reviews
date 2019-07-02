@@ -6,9 +6,9 @@
     </head>
     <body>
         <h1>List of Food Cuisines</h1>
-            <div th:each = "cuisine: ${cuisines}"></div>
+            <div th:each = "cuisine: ${cuisines}">
         <li>
-            <a th:href="@{/cuisine(id=${cuisine.id})}" th:text="${cuisine.type}"></a>
+            <a th:href="@{/cuisine(id=${cuisine.id})}" th:text="${cuisine.type}"> </a>
         </li>
     </div>
         

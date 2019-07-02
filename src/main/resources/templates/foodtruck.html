@@ -8,7 +8,7 @@
 
     <div th:each = "foodtruck: ${foodtrucks}">
         <p th:text = "${foodtruck.name}"></p>
-        <p th:text = "${foodtruck.map}"></p>
+        <p th:text = "${foodtruck.map}"></p>        
 		
         <a href="http://localhost:8080/show-all-foodtrucks">Back to home</a>
     </div>
