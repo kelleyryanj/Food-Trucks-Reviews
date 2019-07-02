@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th = "http://www.thymeleaf.org" lang="en">
     <head>
         <title>Reviews</title>
     </head>
     <body>
         <h1>List of Reviews</h1>
 
-        <div th:each="course: ${foodtruck}"></div>
+        <div th:each="reviews: ${reviews}"></div>
         <li>
-            <a th:href="@{/foodtruck(id=${Foodtruck.id})}" th:text="${foodtruck.Reviews}"></a>
+            <a th:href="@{/review(id=${review.id})}" th:text="${review.review}"></a>
         </li>
     </div>
         
