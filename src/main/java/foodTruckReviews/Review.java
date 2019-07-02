@@ -61,6 +61,15 @@ public class Review {
 	public long getId() {
 		return id;
 	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public Foodtruck getFoodtruck() {
+		return foodtruck;
+	}
+	
 	
 
 
