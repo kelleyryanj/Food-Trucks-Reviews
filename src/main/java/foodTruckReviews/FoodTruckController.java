@@ -29,16 +29,16 @@ public class FoodTruckController {
 		Optional<Foodtruck> foodTruck = foodTruckRepo.findById(id);
 		
 		if(foodTruck.isPresent()) {
-			model.addAttribute("food-trucks", foodTruck.get());
-			return ("food-truck");
+			model.addAttribute("foodtrucks", foodTruck.get());
+			return ("foodtruck");
 		}
 		throw new FoodTruckNotFoundException();
 	}
 	
 	@RequestMapping("/show-all-foodtrucks")
 	public String findAllFoodTrucks(Model model) {
-		model.addAttribute("food-trucks", foodTruckRepo.findAll());
-		return "food-trucks";
+		model.addAttribute("foodtrucks", foodTruckRepo.findAll());
+		return "show-all-foodtrucks";
 		
 	}
 	
@@ -57,7 +57,7 @@ public class FoodTruckController {
 	@RequestMapping("/show-all-reviews")
 	public String findAllReviews(Model model) {
 		model.addAttribute("reviews", reviewRepo.findAll());
-		return ("reviews");
+		return ("show-all-reviews");
 		
 	}
 	
@@ -76,7 +76,7 @@ public class FoodTruckController {
 	
 	@RequestMapping("/show-all-cuisines")
 	public String findAllCuisines(Model model) {
-		model.addAttribute("cusines", cuisineRepo.findAll());
-		return ("cuisines");
+		model.addAttribute("cuisines", cuisineRepo.findAll());
+		return ("show-all-cuisines");
 	}
 }

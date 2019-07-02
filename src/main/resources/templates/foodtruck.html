@@ -6,11 +6,10 @@
 <body>
     <h1>Food Truck</h1>
 
-    <div th:each = "Foodtruck: ${Foodtrucks}">
-        <p th:text = "${Foodtruck.name}"></p>
-        <p th:text = "${Foodtruck.description}"></p>
-        <p th:text = "${Foodtruck.cuisine}"></p>
-        <p th:text = "${Foodtruck.review}"></p>
+    <div th:each = "foodtruck: ${foodtrucks}">
+        <p th:text = "${foodtruck.name}"></p>
+        <p th:text = "${foodtruck.cuisines}"></p>
+        <p th:text = "${foodtruck.reviews}"></p>
         <a href="http://localhost:8080/show-all-foodtrucks">Back to home</a>
     </div>
 
