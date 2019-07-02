@@ -1,4 +1,4 @@
-package FoodTrucks.FoodTruckReviews;
+package foodTruckReviews;
 
 import javax.annotation.Resource;
 
@@ -17,6 +17,15 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import foodTruckReviews.Cuisine;
+import foodTruckReviews.CuisineRepository;
+
+import foodTruckReviews.Foodtruck;
+import foodTruckReviews.FoodtruckRepository;
+
+import foodTruckReviews.Review;
+import foodTruckReviews.ReviewRepository;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @DataJpaTest
 
@@ -25,7 +34,9 @@ public class JPAMappingsTest {
 	private CuisineRepository cuisineRepo;
 	
 	@Resource
+
 	private FoodtruckRepository foodtruckRepo;
+
 	
 	@Resource
 	private TestEntityManager entityManager;
@@ -114,7 +125,9 @@ public class JPAMappingsTest {
 	@Test
 	public void shouldFindFoodtrucksForCuisineId() {
 		Cuisine mediterranean  = cuisineRepo.save(new Cuisine("mediterranean"));
-		long cuisineId = mediterranean .getId();
+
+		long cuisineId = mediterranean.getId();
+
 		
 		Foodtruck Foodtruck3 = foodtruckRepo.save(new Foodtruck("Halal NeywYork Gyro", "map3", mediterranean));
 		Foodtruck Foodtruck4 = foodtruckRepo.save(new Foodtruck("Kabob Time", "map4", mediterranean));

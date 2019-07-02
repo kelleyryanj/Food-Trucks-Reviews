@@ -1,4 +1,4 @@
-package FoodTrucks.FoodTruckReviews;
+package foodTruckReviews;
 
 import java.util.Collection;
 
@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+
+
 
 @Entity
 
@@ -16,8 +18,10 @@ public class Cuisine {
 	
 	private String type;
 	
+
 	@ManyToMany(mappedBy = "cuisines")
 	private Collection<Foodtruck>foodtrucks;
+
 	
 	public Cuisine() {
 		
