@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Food Truck Cuisines</title>
+    </head>
+    <body>
+        <h1>List of Food Trucks</h1>
+            <div th:each="course: ${foodtrucks}"></div>
+        <li>
+            <a th:href="@{/foodtruck(id=${Foodtruck.id})}" th:text="${foodtruck.Cuisines}"></a>
+        </li>
+    </div>
+        
+    </body>
+
+</html>
