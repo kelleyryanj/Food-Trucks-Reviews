@@ -36,6 +36,12 @@ public class MockMvcControllerTest {
 	@Mock
 	Foodtruck foodTruck;
 	
+	@Mock
+	Review review;
+	
+	@Mock
+	Cuisine cuisine;
+	
 	
 	@Test
 	public void shouldRouteToSingleFoodTruckView() throws Exception{
@@ -62,6 +68,11 @@ public class MockMvcControllerTest {
 	@Test
 	public void shouldPutSingleFoodTruckIntoModel() throws Exception {
 		when(foodTruckRepo.findById(1L)).thenReturn(Optional.of(foodTruck));
-		mvc.perform(get("/foodtruck?id=1")).andExpect(model().attribute("foodtrucks", is (foodTruck)));
+		mvc.perform(get("/foodtruck?id=1")).andExpect(model().attribute("food-trucks", is (foodTruck)));
+	}
+	
+	@Test
+	public void shouldRouteToAllFoodTrucks () throws Exception {
+		mvc.perform(get("/show-all-foodtrucks")).andExpect(view().name(is("food-trucks")));
 	}
 }

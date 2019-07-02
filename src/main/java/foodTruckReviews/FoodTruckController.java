@@ -38,7 +38,7 @@ public class FoodTruckController {
 	@RequestMapping("/show-all-foodtrucks")
 	public String findAllFoodTrucks(Model model) {
 		model.addAttribute("food-trucks", foodTruckRepo.findAll());
-		return "food-trucks";
+		return "show-all-foodtrucks";
 		
 	}
 	
