@@ -29,7 +29,7 @@ public class FoodTruckController {
 		Optional<Foodtruck> foodTruck = foodTruckRepo.findById(id);
 		
 		if(foodTruck.isPresent()) {
-			model.addAttribute("food-trucks", foodTruck.get());
+			model.addAttribute("foodtrucks", foodTruck.get());
 			return ("foodtruck");
 		}
 		throw new FoodTruckNotFoundException();
@@ -37,7 +37,7 @@ public class FoodTruckController {
 	
 	@RequestMapping("/show-all-foodtrucks")
 	public String findAllFoodTrucks(Model model) {
-		model.addAttribute("food-trucks", foodTruckRepo.findAll());
+		model.addAttribute("foodtrucks", foodTruckRepo.findAll());
 		return "show-all-foodtrucks";
 		
 	}
