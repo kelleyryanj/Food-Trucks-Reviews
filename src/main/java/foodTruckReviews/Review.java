@@ -56,6 +56,9 @@ public class Review {
 	
 	}
 	
+	public String getReview() {
+		return review;
+	}
 	
 
 }
