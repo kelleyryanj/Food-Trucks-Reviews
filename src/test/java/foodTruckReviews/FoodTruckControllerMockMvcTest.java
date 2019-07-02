@@ -21,7 +21,7 @@ import static org.mockito.Mockito.*;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(FoodTruckController.class)
-public class MockMvcControllerTest {
+public class FoodTruckControllerMockMvcTest {
 	
 	@Resource
 	private MockMvc mvc;
