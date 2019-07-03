@@ -35,10 +35,7 @@ public class FoodTruckController {
 		throw new FoodTruckNotFoundException();
 	}
 
-	@ModelAttribute("cuisines")
-	public Iterable<Cuisine> cuisines() {
-		return cuisineRepo.findAll();
-	}
+	
 
 	@RequestMapping("/show-all-foodtrucks")
 	public String findAllFoodTrucks(Model model) {
