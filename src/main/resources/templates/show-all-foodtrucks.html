@@ -3,13 +3,36 @@
 <head>
     <title>Food Trucks</title>
 </head>
+<link rel="stylesheet" href="./css/styles.css">
 <body>
     <h1>List of Food Trucks</h1>
 
-    <div th:each="foodtruck: ${foodtrucks}">
-        <li>
-            <a th:href="@{/foodtruck(id=${foodtruck.id})}" th:text="${foodtruck.name}"></a>
-      
-    </div>
+    <div class="navbar">
+            <a href="http://localhost:8080/show-all-foodtrucks">Home</a>
+            <a href="http://localhost:8080/show-all-cuisines">Cuisines</a>
+            <a href="http://localhost:8080/show-all-reviews">Reviews</a>
+            <div class="dropdown">
+              <button class="dropbtn">Food Trucks 
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                    <div th:each="foodtruck: ${foodtrucks}">
+                            <a th:href="@{/foodtruck(id=${foodtruck.id})}" th:text="${foodtruck.name}"></a>
+                    </div>
+              </div>
+            </div> 
+          </div>
+          <div class="dashed">
+              <h2> Welcome to our reviews on Food Trucks are are located in the Columbus, OH campus area.</h2>
+                <p>Please use our menu above to see some of the food trucks that we have personally been to and that 
+                    we have reviewed. 
+                </p>
+          </div>
+        <footer>
+        <a href="http://localhost:8080/show-all-cuisines">List of Cuisines</a>
+        
+        <a href="http://localhost:8080/show-all-reviews">List of Reviews</a>
+        </footer>
+  
 </body>
 </html>

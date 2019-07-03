@@ -25,6 +25,7 @@ public class FoodtruckPopulator implements CommandLineRunner{
 		Cuisine american = cuisineRepo.save(new Cuisine("American"));
 		Cuisine mediterranean = cuisineRepo.save(new Cuisine("Mediterranean"));
 		
+		
 		Foodtruck mikeys = foodtruckRepo.save(new Foodtruck("Mikey's Late Night Slice", "mikeys", american, italian));
 		Foodtruck kabob = foodtruckRepo.save(new Foodtruck("Kabob Time", "kabob", mediterranean));
 		Foodtruck rays = foodtruckRepo.save(new Foodtruck("Ray Rays", "rayrays", american));
@@ -32,6 +33,7 @@ public class FoodtruckPopulator implements CommandLineRunner{
 		Foodtruck arepa = foodtruckRepo.save(new Foodtruck("La Arepa Picante", "arepa", mexican));
 		Foodtruck mrgrill = foodtruckRepo.save(new Foodtruck("Mr. Grill Tacos", "mrtaco", mexican));
 		
+
 		reviewRepo.save(new Review("Mikey's Review 1", mikeys));
 		reviewRepo.save(new Review("Mikey's Review 2", mikeys));
 		reviewRepo.save(new Review("Kabob Time Review", kabob));
@@ -40,8 +42,6 @@ public class FoodtruckPopulator implements CommandLineRunner{
 		reviewRepo.save(new Review("Halal New York Gyro Review", halal));
 		reviewRepo.save(new Review("La Arepa Picante Review", arepa));
 		reviewRepo.save(new Review("Mr. Grill Tacos Review", mrgrill));
-		
-		
 	}
 
 }

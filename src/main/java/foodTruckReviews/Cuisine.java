@@ -20,7 +20,7 @@ public class Cuisine {
 	
 
 	@ManyToMany(mappedBy = "cuisines")
-	private Collection<Foodtruck>foodtruck;
+	private Collection<Foodtruck>foodtrucks;
 
 	
 	public Cuisine() {
