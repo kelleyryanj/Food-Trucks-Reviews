@@ -3,14 +3,15 @@
 <head>
     <title>Food Trucks</title>
 </head>
+<link rel="stylesheet" href="./css/styles.css">
 <body>
     <h1>List of Food Trucks</h1>
-
+    <div class= "dashed">
     <div th:each="foodtruck: ${foodtrucks}">
         <li>
             <a th:href="@{/foodtruck(id=${foodtruck.id})}" th:text="${foodtruck.name}"></a>
-        </li>
-            
+        </li> 
+    </div>      
     </div>
     
         <a href="http://localhost:8080/show-all-cuisines">List of Cuisines</a>
