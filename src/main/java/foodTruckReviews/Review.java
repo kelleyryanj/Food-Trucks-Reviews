@@ -1,6 +1,8 @@
 package foodTruckReviews;
 
 
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,23 +16,17 @@ public class Review {
 	@GeneratedValue
 	private long id;
 	
-	private String review;
+	private String description;
 	
 	public Review() {
-		
-		
 	}
 	
-
 	@ManyToOne
 	private Foodtruck foodtruck;
 
-	
-	
 	public Review(String review, Foodtruck foodtruck) {
 		this.review = review;
 		this.foodtruck = foodtruck;
-	
 	
 	}
 	
@@ -65,4 +61,5 @@ public class Review {
 			return false;
 		return true;
 	}
+
 }

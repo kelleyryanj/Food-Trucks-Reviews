@@ -1,17 +1,18 @@
-<!DOCTYPE html>
-<html xmlns: th="http://www.thymeleaf.org">
-<head>
-    <title>Food Truck</title>
-</head>
-<body>
-    <h1>Food Truck</h1>
+<<html xmlns:th = "http://www.thymeleaf.org" lang="en">
 
-    
-    <div th:each = "cuisine: ${cuisines}">
-        <p th:text = "${cuisine.type}"></p>
+    <head>
+        <title>Single Cuisine</title>
+    </head>
+    <body>
+        <h1>Single Cuisine</h1>
+     <div th:each = "cuisine: ${cuisines}">
+        <h2 th:text = "${cuisine.type}"></h2>
         <p th:text = "${cuisine.foodtruck}"></p>
+      <div th:each="foodtruck: ${foodtrucks}">
+        <h2> <a th:href="@{/foodtruck(id=${foodtruck.id})}" th:text="${foodtruck.name}"></a>
+        </h2>
+      </div>
         <a href="http://localhost:8080/show-all-foodtrucks">Back to home</a>
     </div>
-
 </body>
 </html>

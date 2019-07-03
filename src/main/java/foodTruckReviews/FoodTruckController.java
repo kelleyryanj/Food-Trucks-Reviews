@@ -72,7 +72,8 @@ public class FoodTruckController {
 
 		if (cuisine.isPresent()) {
 			model.addAttribute("cuisines", cuisine.get());
-			model.addAttribute("foodtruck", foodTruckRepo.findByCuisinesContains(cuisine.get()));
+			model.addAttribute("foodtrucks", foodTruckRepo.findByCuisinesContains(cuisine.get()));
+      
 			return ("cuisine");
 		}
 		throw new CuisineNotFoundException();

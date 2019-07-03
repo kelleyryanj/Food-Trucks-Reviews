@@ -10,6 +10,8 @@
         <p th:text = "${foodtruck.name}"></p>
         <p th:each="cuisine: ${foodtruck.cuisines}" th:text="${cuisine.name}"></p>
         <p th:each="review: ${foodtruck.reviews}" th:text="${review.name}"></p>
+        <img th:src="@{'/images/' + ${foodtruck.map} + '.jpg'}" alt = "Picture"/>
+
         <a href="http://localhost:8080/show-all-foodtrucks">Back to home</a>
     </div>
    
