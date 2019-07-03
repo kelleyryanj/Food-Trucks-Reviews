@@ -20,7 +20,7 @@ public class Cuisine {
 	
 
 	@ManyToMany(mappedBy = "cuisines")
-	private Collection<Foodtruck>foodtrucks;
+	private Collection<Foodtruck>foodtruck;
 
 	
 	public Cuisine() {
@@ -31,6 +31,10 @@ public class Cuisine {
 		this.type = type;
 	}
 	
+	public String getName() {
+		return type.toString();
+	}
+	
 	public long getId() {
 		return id;
 	}
@@ -38,7 +42,7 @@ public class Cuisine {
 	public String getType(){
 		return type;
 	}
-	
+
 	public Collection<Foodtruck> getFoodtrucks(){
 		return foodtrucks;
 	}

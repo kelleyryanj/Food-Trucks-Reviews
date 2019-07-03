@@ -19,10 +19,26 @@ public class Review {
 	private String description;
 	
 	public Review() {
-		
-		
 	}
 	
+	@ManyToOne
+	private Foodtruck foodtruck;
+
+	public Review(String review, Foodtruck foodtruck) {
+		this.review = review;
+		this.foodtruck = foodtruck;
+	
+	}
+	
+	public String getReview() {
+		return review;
+	}
+	
+	public String getName() {
+		return review.toString();
+	}
+	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -30,8 +46,8 @@ public class Review {
 		result = prime * result + (int) (id ^ (id >>> 32));
 		return result;
 	}
-
-
+	
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -45,32 +61,5 @@ public class Review {
 			return false;
 		return true;
 	}
-
-	@ManyToOne
-	private Foodtruck foodtruck;
-
-	
-	
-	public Review(String description, Foodtruck foodtruck) {
-		this.description = description;
-		this.foodtruck = foodtruck;
-	
-	
-	}
-	
-	public long getId() {
-		return id;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public Foodtruck getFoodtruck() {
-		return foodtruck;
-	}
-	
-	
-
 
 }
