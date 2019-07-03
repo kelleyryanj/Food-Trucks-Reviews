@@ -52,6 +52,7 @@ public class Foodtruck {
 		
 		return cuisines;
 	}
+	
 
 	@Override
 	public int hashCode() {

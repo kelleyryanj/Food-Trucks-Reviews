@@ -42,9 +42,9 @@ public class Cuisine {
 	public String getType(){
 		return type;
 	}
-	
-	public Collection<Foodtruck> getFoodtruck(){
-		return foodtruck;
+
+	public Collection<Foodtruck> getFoodtrucks(){
+		return foodtrucks;
 	}
 
 	@Override
