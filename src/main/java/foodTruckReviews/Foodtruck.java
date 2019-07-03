@@ -51,6 +51,7 @@ public class Foodtruck {
 	public Collection<Cuisine> getCuisines(){
 		return cuisines;
 	}
+	
 
 	@Override
 	public int hashCode() {
