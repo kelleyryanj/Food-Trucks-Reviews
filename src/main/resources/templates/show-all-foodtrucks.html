@@ -9,7 +9,14 @@
     <div th:each="foodtruck: ${foodtrucks}">
         <li>
             <a th:href="@{/foodtruck(id=${foodtruck.id})}" th:text="${foodtruck.name}"></a>
-      
+        </li>
+            
     </div>
+    
+        <a href="http://localhost:8080/show-all-cuisines">List of Cuisines</a>
+        
+        <a href="http://localhost:8080/show-all-reviews">List of Reviews</a>
+      
+  
 </body>
 </html>

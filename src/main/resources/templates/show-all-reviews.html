@@ -7,10 +7,12 @@
         <h1>List of Reviews</h1>
 
         <div th:each="review: ${reviews}">
-        <li>
-            <a th:href="@{/review(${review.id})}" th:text="${review.description}"></a>
-        </li>
+            <p th:href="@{/review(${review.id})}" th:text="${review.review}"></p>
     </div>
+    
+    	<a href="http://localhost:8080/show-all-cuisines">List of Cuisines</a>
+                
+        <a href="http://localhost:8080/show-all-foodtrucks">Back to home</a>
         
     </body>
 

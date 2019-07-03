@@ -16,7 +16,7 @@ public class Review {
 	@GeneratedValue
 	private long id;
 	
-	private String description;
+	private String review;
 	
 	public Review() {
 	}
@@ -38,7 +38,10 @@ public class Review {
 		return review.toString();
 	}
 	
-
+	public long getId() {
+		return id;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
