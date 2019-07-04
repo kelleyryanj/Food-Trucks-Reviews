@@ -3,21 +3,43 @@
 <head>
     <title>Food Truck</title>
 </head>
+<link rel="stylesheet" href="./css/styles.css">
 <body>
-    <h1>Food Truck</h1>
 
-    <div th:each = "foodtruck: ${foodtrucks}">
+        
+    <h1>Food Truck</h1>
+    <div class="navbar">
+            <a href="http://localhost:8080/show-all-foodtrucks">Home</a>
+            <a href="http://localhost:8080/show-all-cuisines">Cuisines</a>
+            <a href="http://localhost:8080/show-all-reviews">Reviews</a>
+            <div class="dropdown">
+              <button class="dropbtn">Food Trucks 
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                    <div th:each="foodtruck: ${foodtrucks}">
+                            <a th:href="@{/foodtruck(id=${foodtruck.id})}" th:text="${foodtruck.name}"></a>
+                    </div>
+              </div>
+            </div> 
+          </div>
+          <div class="dashed">
+
+    <div id="foodtruck" th:each = "foodtruck: ${foodtrucks}">
+            
         <p th:text = "${foodtruck.name}"></p>
         <p th:each="cuisine: ${foodtruck.cuisines}" th:text="${cuisine.name}"></p>
         <p th:each="review: ${foodtruck.reviews}" th:text="${review.name}"></p>
         <img th:src="@{'/images/' + ${foodtruck.map} + '.jpg'}" alt = "Picture"/>
-        
+    </div>
+    </div>
+    <footer>    
   		<a href="http://localhost:8080/show-all-cuisines">List of Cuisines</a>
         
         <a href="http://localhost:8080/show-all-reviews">List of Reviews</a>
         
         <a href="http://localhost:8080/show-all-foodtrucks">Back to home</a>
-    </div>
+    </footer>
    
 </body>
 </html>
