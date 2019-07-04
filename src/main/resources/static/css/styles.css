@@ -1,13 +1,32 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
 
+body{
+  background-image: url(../images/background.jpg);
+  background-repeat: no-repeat;
+}
+
+h1{
+  max-width: 1000px;
+  background: #A7D2CB;
+    font-family: 'Raleway', sans-serif;
+    margin: auto auto;
+}
+
+#mainBody{
+  max-width: 1000px;
+  background: #A7D2CB;
+    font-family: 'Raleway', sans-serif;
+    margin: auto auto;
+    min-height: 900px;
+}
+
+
+
 .dashed {
     border: 2px dashed #F2D388;
 }
 
-body {
-    background: #A7D2CB;
-    font-family: 'Raleway', sans-serif;
-}
+
 
   /* width */
   ::-webkit-scrollbar {
@@ -89,4 +108,17 @@ body {
   
   .dropdown:hover .dropdown-content {
     display: block;
+  }
+
+  #images {
+    display: flex;
+    justify-content: center;
+  }
+
+  #placeholder{
+    margin: auto auto;
+  }
+
+  #aboutUs{
+    margin: 1em 1em;
   }
