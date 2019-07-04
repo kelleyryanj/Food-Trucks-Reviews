@@ -25,7 +25,7 @@
           </div>
           <div class="dashed">
 
-    <div th:each = "foodtruck: ${foodtrucks}">
+    <div id="foodtruck" th:each = "foodtruck: ${foodtrucks}">
             
         <p th:text = "${foodtruck.name}"></p>
         <p th:each="cuisine: ${foodtruck.cuisines}" th:text="${cuisine.name}"></p>

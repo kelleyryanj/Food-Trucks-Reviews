@@ -12,7 +12,7 @@ h1{
     margin: auto auto;
 }
 
-#mainBody{
+#mainBody {
   max-width: 1000px;
   background: #A7D2CB;
     font-family: 'Raleway', sans-serif;
@@ -121,4 +121,10 @@ h1{
 
   #aboutUs{
     margin: 1em 1em;
+  }
+
+  #foodtruck, .dashed{
+    max-width: 1000px;
+  background: #A7D2CB;
+    font-family: 'Raleway', sans-serif;
   }
