@@ -27,18 +27,18 @@
 
     <div id="foodtruck" th:each = "foodtruck: ${foodtrucks}">
             
-        <p th:text = "${foodtruck.name}"></p>
-        <p th:each="cuisine: ${foodtruck.cuisines}" th:text="${cuisine.name}"></p>
+        <h2 th:text = "${foodtruck.name}"></h2>
+        <h3 th:each="cuisine: ${foodtruck.cuisines}" th:text="${cuisine.name}"></h3>
         <p th:each="review: ${foodtruck.reviews}" th:text="${review.name}"></p>
         <img th:src="@{'/images/' + ${foodtruck.map} + '.jpg'}" alt = "Picture"/>
     </div>
     </div>
-    <footer>    
+    <footer class = "footer">    
   		<a href="http://localhost:8080/show-all-cuisines">List of Cuisines</a>
         
         <a href="http://localhost:8080/show-all-reviews">List of Reviews</a>
         
-        <a href="http://localhost:8080/show-all-foodtrucks">Back to home</a>
+        <a href="http://localhost:8080/show-all-foodtrucks">Back to Home</a>
     </footer>
    
 </body>

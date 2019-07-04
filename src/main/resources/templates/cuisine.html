@@ -25,17 +25,17 @@
      <div th:each = "cuisine: ${cuisines}">
         <h2 th:text = "${cuisine.type}"></h2>
       <div th:each="foodtruck: ${foodtrucks}">
-        <h2> <a th:href="@{/foodtruck(id=${foodtruck.id})}" th:text="${foodtruck.name}"></a>
+        <h3 id = "singlefoodtruck"> <a th:href="@{/foodtruck(id=${foodtruck.id})}" th:text="${foodtruck.name}"></h3>
         </h2>
       </div>
       </div>
     </div>
-    <footer>
+    <footer class = "footer">
       	<a href="http://localhost:8080/show-all-cuisines">List of Cuisines</a>
         
         <a href="http://localhost:8080/show-all-reviews">List of Reviews</a>
         
-        <a href="http://localhost:8080/show-all-foodtrucks">Back to home</a>
+        <a href="http://localhost:8080/show-all-foodtrucks">Back to Home</a>
   </footer>
 </body>
 </html>

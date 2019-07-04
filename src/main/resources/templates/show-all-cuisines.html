@@ -5,7 +5,7 @@
     <head>
         <title>Cuisines</title>
     </head>
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" type= "text/css" href="./css/styles.css">
     <body>
         <h1>List of Cuisines</h1>
         <div class="navbar">
@@ -25,15 +25,14 @@
               </div>
               <div class="dashed">
             <div th:each = "cuisine: ${cuisines}">
-        <li>
-            <a th:href="@{/cuisine(id=${cuisine.id})}" th:text="${cuisine.type}"> </a>
-        </li>
+        <h2 id = "showcuisines"><a th:href="@{/cuisine(id=${cuisine.id})}" th:text="${cuisine.type}"> </a></h2> 
+     
             </div>
             </div>
-        <footer>       
+        <footer class = "footer">       
         <a href="http://localhost:8080/show-all-reviews">List of Reviews</a>
         
-        <a href="http://localhost:8080/show-all-foodtrucks">Back to home</a>
+        <a href="http://localhost:8080/show-all-foodtrucks">Back to Home</a>
         </footer>
 
         
