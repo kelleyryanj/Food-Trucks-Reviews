@@ -31,6 +31,10 @@ public class Cuisine {
 		this.type = type;
 	}
 	
+	public String getName() {
+		return type.toString();
+	}
+	
 	public long getId() {
 		return id;
 	}
@@ -38,8 +42,8 @@ public class Cuisine {
 	public String getType(){
 		return type;
 	}
-	
-	public Collection<Foodtruck> getReviews(){
+
+	public Collection<Foodtruck> getFoodtrucks(){
 		return foodtrucks;
 	}
 

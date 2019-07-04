@@ -18,6 +18,8 @@ import org.springframework.ui.Model;
 
 
 
+
+
 public class FoodTruckControllerTest {
 	
 	@InjectMocks
@@ -64,7 +66,7 @@ public class FoodTruckControllerTest {
 		when(foodTruckRepo.findById(arbitraryFoodTruckId)).thenReturn(Optional.of(foodTruck));
 		
 		underTest.findOneFoodTruck(arbitraryFoodTruckId, model);
-		verify(model).addAttribute("food-trucks", foodTruck);
+		verify(model).addAttribute("foodtrucks", foodTruck);
 	}
 	
 	@Test
@@ -73,7 +75,7 @@ public class FoodTruckControllerTest {
 		when(foodTruckRepo.findAll()).thenReturn(allFoodTrucks);
 		
 		underTest.findAllFoodTrucks(model);
-		verify(model).addAttribute("food-trucks", allFoodTrucks);
+		verify(model).addAttribute("foodtrucks", allFoodTrucks);
 	}
 	
 	@Test

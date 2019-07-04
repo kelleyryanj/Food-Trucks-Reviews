@@ -1,6 +1,8 @@
 package foodTruckReviews;
 
 
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,8 +19,27 @@ public class Review {
 	private String review;
 	
 	public Review() {
-		
-		
+	}
+	
+	@ManyToOne
+	private Foodtruck foodtruck;
+
+	public Review(String review, Foodtruck foodtruck) {
+		this.review = review;
+		this.foodtruck = foodtruck;
+	
+	}
+	
+	public String getReview() {
+		return review;
+	}
+	
+	public String getName() {
+		return review.toString();
+	}
+	
+	public long getId() {
+		return id;
 	}
 	
 	@Override
@@ -28,8 +49,8 @@ public class Review {
 		result = prime * result + (int) (id ^ (id >>> 32));
 		return result;
 	}
-
-
+	
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -43,19 +64,5 @@ public class Review {
 			return false;
 		return true;
 	}
-
-	@ManyToOne
-	private Foodtruck foodtruck;
-
-	
-	
-	public Review(String review, Foodtruck foodtruck) {
-		this.review = review;
-		this.foodtruck = foodtruck;
-	
-	
-	}
-	
-	
 
 }

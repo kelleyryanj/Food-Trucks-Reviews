@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html xmlns: th="http://www.thymeleaf.org">
-<head>
-    <title>Food Truck</title>
-</head>
-<link rel="stylesheet" href="./css/styles.css">
-<body>
+<html xmlns:th = "http://www.thymeleaf.org" lang="en">
 
-  <div id="mainBody">    
-    <h1>Food Truck</h1>
-    <div class="navbar">
+    <head>
+        <title>Single Cuisine</title>
+    </head>
+    <link rel="stylesheet" href="./css/styles.css">
+    <body>
+        <h1>Single Cuisine</h1>
+        <div class="navbar">
             <a href="http://localhost:8080/show-all-foodtrucks">Home</a>
             <a href="http://localhost:8080/show-all-cuisines">Cuisines</a>
             <a href="http://localhost:8080/show-all-reviews">Reviews</a>
@@ -23,23 +21,21 @@
               </div>
             </div> 
           </div>
-          <div class="dashed">
-
-    <div id="foodtruck" th:each = "foodtruck: ${foodtrucks}">
-            
-        <h2 th:text = "${foodtruck.name}"></h2>
-        <h3 th:each="cuisine: ${foodtruck.cuisines}" th:text="${cuisine.name}"></h3>
-        <p th:each="review: ${foodtruck.reviews}" th:text="${review.name}"></p>
-        <img th:src="@{'/images/' + ${foodtruck.map} + '.jpg'}" alt = "Picture"/>
+     <div class="dashed">
+     <div th:each = "cuisine: ${cuisines}">
+        <h2 th:text = "${cuisine.type}"></h2>
+      <div th:each="foodtruck: ${foodtrucks}">
+        <h3 id = "singlefoodtruck"> <a th:href="@{/foodtruck(id=${foodtruck.id})}" th:text="${foodtruck.name}"></h3>
+        </h2>
+      </div>
+      </div>
     </div>
-    </div>
-    <footer class = "footer">    
-  		<a href="http://localhost:8080/show-all-cuisines">List of Cuisines</a>
+    <footer class = "footer">
+      	<a href="http://localhost:8080/show-all-cuisines">List of Cuisines</a>
         
         <a href="http://localhost:8080/show-all-reviews">List of Reviews</a>
         
         <a href="http://localhost:8080/show-all-foodtrucks">Back to Home</a>
-    </footer>
-   </div>
+  </footer>
 </body>
 </html>
