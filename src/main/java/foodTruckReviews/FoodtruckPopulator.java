@@ -39,9 +39,9 @@ public class FoodtruckPopulator implements CommandLineRunner{
 		reviewRepo.save(new Review("Kabob Time Review", kabob));
 		reviewRepo.save(new Review("Ray Rays Review 1", rays));
 		reviewRepo.save(new Review("Ray Rays Review 2", rays));
-		reviewRepo.save(new Review("Halal New York Gyro Review", halal));
-		reviewRepo.save(new Review("La Arepa Picante Review", arepa));
-		reviewRepo.save(new Review("Mr. Grill Tacos Review", mrgrill));
+		reviewRepo.save(new Review("Halal New York Gyro is on the westside of Columbus right next to a Marathon gas station. It's decently priced, fairly timely, and pretty good. Would recommend!", halal));
+		reviewRepo.save(new Review("La Arepa Picante is right across the street from the Casino. It has a wide variety of food which is reasonably priced. There is very little wait time and is delish!", arepa));
+		reviewRepo.save(new Review("Mr. Grill Tacos is a favorite but there is a really long wait...one time it took us 45 minutes to get our food. It was worth it in the end, but don't got if you are in a rush.", mrgrill));
 	}
 
 }
