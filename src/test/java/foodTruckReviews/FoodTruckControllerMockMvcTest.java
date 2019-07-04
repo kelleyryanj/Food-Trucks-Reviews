@@ -100,34 +100,7 @@ public class FoodTruckControllerMockMvcTest {
 		
 		mvc.perform(get("/show-all-foodtrucks")).andExpect(model().attribute("foodtrucks", is(allFoodTrucks)));
 	}
-	
-	@Test
-	public void shouldRouteToSingleReviewView() throws Exception{
-		long arbitraryReviewId = 1;
-		when(reviewRepo.findById(arbitraryReviewId)).thenReturn(Optional.of(review));
 		
-		mvc.perform(get("/review?id=1")).andExpect(view().name(is("review")));
-	}
-	
-	@Test
-	public void shouldRouteToSingleReview() throws Exception{
-		long arbitraryReviewId = 1;
-		when(reviewRepo.findById(arbitraryReviewId)).thenReturn(Optional.of(review));
-		
-		mvc.perform(get("/review?id=1")).andExpect(status().isOk());
-		
-		}
-	@Test
-	public void shouldNotRouteToSingleReview() throws Exception {
-		mvc.perform(get("/review?id=1")).andExpect(status().isNotFound());
-	}
-	
-	@Test
-	public void shouldPutSingleReviewIntoModel() throws Exception {
-		when(reviewRepo.findById(1L)).thenReturn(Optional.of(review));
-		mvc.perform(get("/review?id=1")).andExpect(model().attribute("reviews", is (review)));
-	}
-	
 	@Test
 	public void shouldRouteToAllReviewsView () throws Exception {
 		mvc.perform(get("/show-all-reviews")).andExpect(view().name(is("show-all-reviews")));
